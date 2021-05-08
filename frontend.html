@@ -25,27 +25,22 @@
         <input type="text" id="title" class="form-control">
       </div>
       <div class="form-group">
-        <label for="genre">Genre</label>
-        <input type="text" id="genre" class="form-control">
-      </div>
-      <div class="form-group">
         <label for="price">Price</label>
         <input type="text" id="price" class="form-control">
       </div>
+      <div class="form-group">
+        <label for="genre">Genre</label>
+        <select name="genre" id="genre">
+          <option value="Science fiction">Science fiction</option>
+          <option value="Satire">Satire</option>
+          <option value="Action and Adventure">Action and Adventure</option>
+          <option value="Romance">Romance</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Horror">Horror</option>
+        </select>
+      </div>
       <input type="submit" value="Add Book" class="btn btn-primary btn-block">
     </form>
-    <table class="table table-striped mt-5">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Genre</th>
-          <th>Price</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="book-list"></tbody>
-    </table>
   </div>
   <script src="app.js"></script>
 </body>
