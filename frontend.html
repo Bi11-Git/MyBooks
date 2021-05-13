@@ -15,6 +15,7 @@
     <h1 class="display-4 text-center">
       <i class="fas fa-book-open text-primary"></i> My<span class="text-primary">Books</span>
     </h1>
+    <h3 class="text-center">Entry new Book</h3>
     <form id="book-form">
       <div class="form-group">
         <label for="author">Author</label>
@@ -24,23 +25,52 @@
         <label for="title">Title</label>
         <input type="text" id="title" class="form-control">
       </div>
+
       <div class="form-group">
-        <label for="price">Price</label>
-        <input type="text" id="price" class="form-control">
+        <label class="form-label mt-4">Price</label>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <span class="input-group-text">€</span>
+            <input type="text" id="price" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <span class="input-group-text">.00</span>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="genre">Genre</label>
-        <select name="genre" id="genre">
-          <option value="Science fiction">Science fiction</option>
-          <option value="Satire">Satire</option>
-          <option value="Action and Adventure">Action and Adventure</option>
-          <option value="Romance">Romance</option>
-          <option value="Mystery">Mystery</option>
-          <option value="Horror">Horror</option>
-        </select>
+      <div class="btn-group" role="genre" aria-label="genre">
+        <input type="radio" class="btn-check" name="btnradio" id="science-fiction" autocomplete="off" checked="">
+        <label class="btn btn-outline-primary" for="science-fiction">Science fiction</label>
+        <input type="radio" class="btn-check" name="btnradio" id="satire" autocomplete="off" checked="">
+        <label class="btn btn-outline-primary" for="satire">Satire</label>
+        <input type="radio" class="btn-check" name="btnradio" id="drama" autocomplete="off" checked="">
+        <label class="btn btn-outline-primary" for="drama">Drama</label>
+        <input type="radio" class="btn-check" name="btnradio" id="action-adventure" autocomplete="off" checked="">
+        <label class="btn btn-outline-primary" for="action-adventure">Action and Adventure</label>
+        <input type="radio" class="btn-check" name="btnradio" id="romance" autocomplete="off" checked="">
+        <label class="btn btn-outline-primary" for="romance">Romance</label>
+        <input type="radio" class="btn-check" name="btnradio" id="mystery" autocomplete="off" checked="">
+        <label class="btn btn-outline-primary" for="mystery">Mystery</label>
+        <input type="radio" class="btn-check" name="btnradio" id="horror" autocomplete="off" checked="">
+        <label class="btn btn-outline-primary" for="horror">Horror</label>
       </div>
-      <input type="submit" value="Add Book" class="btn btn-primary btn-block">
+      <button type="button" style="float: right;;" class="btn btn-primary">Add Book</button>
     </form>
+    <br>
+    <h3 class="text-center ">Search a Book</h3>
+    <div class="form-group">
+      <label for="key">Key</label>
+      <input type="text" id="key" class="form-control">
+    </div>
+    <button type="button" style="float: right;;" class="btn btn-primary">Search</button>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Author</th>
+          <th scope="col">Title</th>
+          <th scope="col">Price</th>
+          <th scope="col">genre</th>
+        </tr>
+      </thead>
+    </table>
   </div>
   <script src="app.js"></script>
 </body>

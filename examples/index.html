@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+</head>
+<title></title>
+<body>
+    <input type="text" id="name">
+    <input type="text" id="password">
+    <input type="text" id="profession">
+    <input type="button" id="sendRequest" value="send">
+    <input type="button" id="getUsers" value="get Users">
+    <div id="usersArea"></div>
+</body>
+
+<script type="text/javascript">
+    window.addEventListener('load', (event) => {
+        document.getElementById('getUsers').addEventListener('click', (event) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'localhost:3000/listUsers', true);
+            xhr.send();
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState == 4) {
+                    if(xhr.status == 200) {
+                        let divElem = document.getElementById('usersArea');
+                        const data = JSON.parse(xhr.responseText);
+
+                        results.forEach( (item) => {
+                            divElem.innerHTML += `${item.name} ${item.password} ${item.profession}`
+                        });
+                    }
+                }
+            }
+
+        });
+
+
+        
+        document.getElementById('sendRequest').addEventListener('click', (event) => {
+            const user = {
+                'name':document.getElementById('name').value,
+                'password':document.getElementById('password').value,
+                'profession':document.getElementById('profession').value
+            }
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'localhost:3000', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(user);
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState == 4) {
+                    if(xhr.status == 200) {
+                        alert(xhr.responseText);
+                    }
+                }
+            }
+
+        })
+    })
+
+</script>
+
+</html>
