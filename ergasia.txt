@@ -147,3 +147,6 @@ URL: http://<yourdomain>:<yourport>/books/
 Προθεσμία υποβολής:07-06-2021 23:55:00
 (απομένουν 30 ημέρες 5 ώρες 58 λεπτά)
 Τύπος εργασίας:Ατομική εργασία
+
+
+CREATE TABLE `books` (`id` INTEGER PRIMARY KEY AUTOINCREMENT,`author` VARCHAR( 25 ) NOT NULL ,`title` VARCHAR( 40 ) NOT NULL ,`genre` VARCHAR( 20 ) NOT NULL ,`price` FLOAT NOT NULL) ;

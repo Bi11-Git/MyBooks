@@ -33,7 +33,6 @@ app.get('/user/:id', async (req, res) => {
 });
 
 app.post('/addUser', (req, res) => {
-    console.log('not implemented yet');
     const user = req.body;
     const q = `insert into users ( "name", "password", "profession") values ( "` + user.name + `", "` + user.password +`", "` + user.profession + `"); `;
     
