@@ -11,6 +11,9 @@
     <input type="text" id="profession">
     <input type="button" id="sendRequest" value="send">
     <input type="button" id="getUsers" value="get Users">
+    <br>
+    <input type="text" id="ID">
+    <input type="button" id="getUsersById" value="get User">
     <div id="usersArea"></div>
 </body>
 
@@ -18,16 +21,16 @@
     window.addEventListener('load', (event) => {
         document.getElementById('getUsers').addEventListener('click', (event) => {
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', 'localhost:3000/listUsers', true);
+            xhr.open('GET', 'http://localhost:2020/listUsers', true);
             xhr.send();
             xhr.onreadystatechange = function() {
                 if(xhr.readyState == 4) {
                     if(xhr.status == 200) {
                         let divElem = document.getElementById('usersArea');
-                        const data = JSON.parse(xhr.responseText);
+                        const results = JSON.parse(xhr.responseText);
 
                         results.forEach( (item) => {
-                            divElem.innerHTML += `${item.name} ${item.password} ${item.profession}`
+                            divElem.innerHTML += `${item.name} ${item.password} ${item.profession}<br>`
                         });
                     }
                 }
@@ -45,9 +48,9 @@
             }
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'localhost:3000', true);
+            xhr.open('POST', 'http://localhost:2020/addUser', true);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(user);
+            xhr.send(JSON.stringify(user));
             xhr.onreadystatechange = function() {
                 if(xhr.readyState == 4) {
                     if(xhr.status == 200) {
@@ -57,6 +60,27 @@
             }
 
         })
+
+
+        document.getElementById('getUsersById').addEventListener('click', (event) => {
+            const id = document.getElementById('ID').value;
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://localhost:2020/user/'+ document.getElementById('ID').value , true);
+            xhr.send();
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState == 4) {
+                    if(xhr.status == 200) {
+                        let divElem = document.getElementById('usersArea');
+                        const results = JSON.parse(xhr.responseText);
+                        const item = results[0];
+                        
+                        divElem.innerHTML = `${item.name} ${item.password} ${item.profession}`;
+                        
+                    }
+                }
+            };
+
+        });
     })
 
 </script>

@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/Bi11-Git/MyBooks#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.2"
   }
 }
