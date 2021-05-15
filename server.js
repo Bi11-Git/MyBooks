@@ -16,7 +16,9 @@ server.use(parser.json());
 
 server.get('/:search', (req, res) => {
 
-    const q = 'SELECT * FROM books WHERE author="' +req.params.search +'" or title="' + req.params.search + '" or genre="' + req.params.search + '" ;';
+    const key = req.params.search;
+
+    const q = 'SELECT * FROM books WHERE author="' + key +'" or title="' + key + '" or genre="' + key + '" ;';
     db.all(q, ( err, rows) => {
         if( err) {
             console.log(err);
@@ -41,14 +43,14 @@ server.get('/', (req, res) => {
 });
 
 server.post('/', (req, res) => {
-    const book = new Book(req.body)
+    const book = req.body;
     const q = `insert into books ( "author", "title", "genre", "price") values ( "` + book.author + `", "` + book.title + `", "` + book.genre +`", "` + book.price + `"); `;
     console.log(q);
     db.run( q, ( err) => {
         if( err) {
             res.send('Error executing query')
         } else {
-            res.send('All ok');
+            res.send('book added succesfully!');
         }
     });
 });
