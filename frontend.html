@@ -2,84 +2,63 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF=8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script type="text/javascript" src="controller.js"></script>
-  <script src="https://kit.fontawesome.com/acd666cccb.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-    </script>
-  <title>My Books</title>
+    <meta charset="UTF=8">
+    <script src="https://kit.fontawesome.com/5442004ad5.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="controller.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>My Books</title>
 </head>
 
 <body>
-  <div class="container mt-4">
-    <h1 class=" bg-light display-4 text-center">
-      <i class="fas fa-book-open text-primary"></i> My<span class="text-primary">Books</span>
-    </h1>
-    <h3 class="text-center">Entry new Book</h3>
-    <form class="row g-3">
-      <div class="col-md-6">
-        <input type="text" class="form-control" id="author" placeholder="Author" required>
-      </div>
-      <div class="col-md-6">
-        <input type="text" class="form-control" id="title" placeholder="Title" required>
-      </div>
-      <div class="col-md-6">
-        <select class="form-select" id="genre" required>
-          <option selected disabled value="">Choose a Genre</option>
-          <option value="Science fiction">Science fiction</option>
-          <option value="Satire">Satire</option>
-          <option value="Drama">Drama</option>
-          <option value="Action and Adventure">Action and Adventure</option>
-          <option value="Romance">Romance</option>
-          <option value="Mystery">Mystery</option>
-          <option value="Horror">Horror</option>
-        </select>
-      </div>
-      <div class="col-md-6">
-        <div class="input-group">
-          <span class="input-group-text" id="inputGroupPrepend2">€</span>
-          <input type="text" class="form-control" id="price" placeholder="Price" aria-describedby="inputGroupPrepend2"
-            required>
-          <span class="input-group-text" id="inputGroupPrepend3">.00</span>
-        </div>
-      </div>
-      <div class="col-12">
-        <button class="btn btn-primary" style="float: right;" id="addBook" type="submit">Add Book</button>
-      </div>
-    </form>
-    <br> <br>
-    <h3 class="text-center ">Search a Book</h3>
-    <form class="row g-3">
-      <div class="col-md-10">
-        <input type="text" class="form-control" id="key" placeholder="Key" required>
-      </div>
-      <div class="col-md-2">
-        <div class="text-center">
-          <button class="btn btn-primary" id="search">Search</button>
-        </div>
-      </div>
-    </form>
-    <br> <br>
-    <table  id="table" class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Author</th>
-          <th scope="col">Title</th>
-          <th scope="col">Price</th>
-          <th scope="col">genre</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-  </div>
-  </div>
+    <div class="container">
+        <form onsubmit="return false;">
+            <h1 class="display1">
+                <i class="fas fa-book-open color-book"></i> My<span class="color-book">Books</span>
+            </h1>
+            <div class="inLine">
+                <input type="text" class="form-control" id="author" placeholder="Author" required>
+                <input type="text" class="form-control" id="title" placeholder="Title" required>
+            </div>
+            <div class="inLine">
+                <select class="form-control" id="genre" required>
+            <option selected disabled value="">Choose a Genre</option>
+            <option value="Science fiction">Science fiction</option>
+            <option value="Satire">Satire</option>
+            <option value="Drama">Drama</option>
+            <option value="Action and Adventure">Action and Adventure</option>
+            <option value="Romance">Romance</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Horror">Horror</option>
+          </select>
+                <input type="text" class="form-control" id="price" placeholder="Price €" required>
+            </div>
+            <button id="addBook" type="submit">Add this Book</button>
+            <br>
+        </form>
+        <form onsubmit="return false;">
+            <div class="inLine">
+                <input type="text" class="form-control" id="key" placeholder="Find a book" required>
+                <button id="search" type="submit">Search</button>
+            </div>
+        </form>
+        <br>
+
+
+        <table id="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">genre</th>
+                </tr>
+            </thead>
+            <tbody id="tody">
+            </tbody>
+        </table>
+    </div>
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,68 @@
+    html {
+        background: url(https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=alfons-morales-YLSwjSy7stw-unsplash.jpg&w=1920) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        overflow: hidden;
+    }
+    
+    .container {
+        position: absolute;
+        width: 450px;
+        height: 320px;
+        height: auto;
+        background: url(https://images.unsplash.com/photo-1528458965990-428de4b1cb0d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=annie-spratt-xvU-X0GV9-o-unsplash.jpg&w=640);
+        margin: auto;
+        border-radius: 5px;
+        padding: 20px;
+        left: 50%;
+        top: 50%;
+        margin-left: -180px;
+        margin-top: -250px;
+    }
+    
+    .display1 {
+        font-size: calc(1.475rem + 2.7vw);
+        font-weight: 300;
+        line-height: 1.2;
+        text-align: center!important
+    }
+    
+    h1 {
+        margin-top: 0;
+        margin-bottom: .5rem;
+        font-weight: 500;
+        line-height: 1.2
+    }
+    
+    .color-book {
+        color: #64471e!important
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 10px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    button {
+        display: block;
+        margin: auto;
+        padding: 10px 20px;
+        border-radius: 4px;
+        background: url();
+    }
+    
+    .inLine {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    table {
+        width: 100%;
+    }
