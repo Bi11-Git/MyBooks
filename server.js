@@ -21,17 +21,17 @@ server.post('/books/', async(req, res) => {
 
     try {
     
-        const rows = await query( 'SELECT * FROM books WHERE title="' + key + '" ;' );
-
         //check if the book title already exist in database
+        const rows = await query( 'SELECT * FROM books WHERE title="' + key + '" ;' );
         if (rows.length === 0) {
 
+            //add book to database
             db.run(q, (err) => {
                 if (err) {
                     conslole.log(err);
-                    res.send('Error executing query')
+                    res.send('Error executing query!')
                 } else {
-                    res.send('book added succesfully!');
+                    res.send('all ok');
                 }
             });
 
@@ -83,7 +83,7 @@ function query(q) {
 
 async function search(key) {
 
-    const row = await query('SELECT * FROM books ;');
+    const row = await query('SELECT title FROM books ;');
 
     if (row === undefined) {
         return 0;

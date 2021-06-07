@@ -16,24 +16,32 @@ window.addEventListener('load', (event) => {
 
         document.getElementById('price').setCustomValidity('');
 
+        //get the data from user
         const author = document.getElementById('author').value;
         const title = document.getElementById('title').value;
         const genre = document.getElementById('genre').value;
         const price = document.getElementById('price').value;
 
+        //check price 
         if(isNaN(price)) {
 
             document.getElementById('price').setCustomValidity('Not a number!');
 
             return;
+        } else if(price > 250 || price < 0) {
+            document.getElementById('price').setCustomValidity('price range is from 0 to 250!');
+            return;
         }
 
+        //check if user has fill in all the fields
         if (author == "" || title == "" || genre == "" || price == "") {
             return;
         }
 
+        //create a book
         const book = new Book(0, author, title, genre, price);
 
+        //send http request to the server
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'http://localhost:2020/books/', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -55,19 +63,20 @@ window.addEventListener('load', (event) => {
 window.addEventListener('load', (event) => {
     document.getElementById("search").addEventListener('click', (event) => {
 
+        //get the search key from user
         const key = document.getElementById('key').value;
 
         if (key == "") {
             return;
         }
 
-        var table = document.getElementById("table");
-        //or use :  var table = document.all.tableid;
-
+        //delete the table
+        const table = document.getElementById("table");
         for (var i = table.rows.length - 1; i > 0; i--) {
             table.deleteRow(i);
         }
 
+        //send http request to the server 
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'http://localhost:2020/books/' + key, true);
         xhr.send();
